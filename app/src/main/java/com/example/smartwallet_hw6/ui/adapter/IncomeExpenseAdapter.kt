@@ -6,41 +6,56 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.databinding.RvItemBinding
 import com.example.smartwallet_hw6.model.data.IncomeExpense
 
 class IncomeExpenseAdapter(
-    private val incomeExpenseListener: IncomeExpenseListener
+    private val onItemClick: (IncomeExpense) -> Unit,
+    private val onDeleteClick: (String) -> Unit
 ) : ListAdapter<IncomeExpense, IncomeExpenseAdapter.IncomeExpenseVH>(IncomeExpenseDiffCallBack()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IncomeExpenseVH =
         IncomeExpenseVH(
             RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            incomeExpenseListener
+            onItemClick,
+            onDeleteClick
         )
 
 
-    override fun onBindViewHolder(holder: IncomeExpenseVH, position: Int) = holder.bind(getItem(position))
+    override fun onBindViewHolder(holder: IncomeExpenseVH, position: Int) =
+        holder.bind(getItem(position))
 
 
     class IncomeExpenseVH(
         private val binding: RvItemBinding,
-        private val incomeExpenseListener: IncomeExpenseListener
+        private val onItemClick: (IncomeExpense) -> Unit,
+        private val onDeleteClick: (String) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(incomeExpense: IncomeExpense){
-            with(binding){
-                tvTitle.text = incomeExpense.title.toString()
+        fun bind(incomeExpense: IncomeExpense) {
+            with(binding) {
+
+                tvTitle.text = incomeExpense.title.toString().capitalize()
                 tvCost.text = incomeExpense.cost.toString()
                 tvDate.text = incomeExpense.date.toString()
 
+                if (incomeExpense.type == true) {
+                    tvCost.text = "-${incomeExpense.cost.toString()}"
+                    tvCost.setTextColor(tvCost.context.resources.getColor(R.color.red))
+                } else {
+                    tvCost.text = "+${incomeExpense.cost.toString()}"
+                    tvCost.setTextColor(tvCost.context.resources.getColor(R.color.green))
+                }
+
+
                 ivDelete.setOnClickListener {
-                    incomeExpenseListener.onItemDeleteClicked()
+                    incomeExpense.documentId?.let(onDeleteClick)
                 }
 
                 root.setOnClickListener {
-                    incomeExpenseListener.onItemClick()
+                    onItemClick(incomeExpense)
                 }
             }
         }
@@ -56,11 +71,6 @@ class IncomeExpenseAdapter(
         override fun areContentsTheSame(oldItem: IncomeExpense, newItem: IncomeExpense): Boolean {
             return oldItem == newItem
         }
-    }
-
-    interface IncomeExpenseListener {
-        fun onItemClick()
-        fun onItemDeleteClicked()
     }
 
 

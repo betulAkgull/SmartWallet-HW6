@@ -57,9 +57,18 @@
         android:name="com.example.smartwallet_hw6.ui.ExpenseFragment"
         android:label="ExpenseFragment"
         tools:layout="@layout/fragment_expense"/>
-    <fragment
+    <dialog
         android:id="@+id/addEditFragment"
         android:name="com.example.smartwallet_hw6.ui.AddEditFragment"
         android:label="AddEditFragment"
-        tools:layout="@layout/fragment_add_edit"/>
+        tools:layout="@layout/fragment_add_edit">
+        <argument
+            android:name="item"
+            app:argType="com.example.smartwallet_hw6.model.data.IncomeExpense"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </dialog>
+
+
+
 </navigation>
