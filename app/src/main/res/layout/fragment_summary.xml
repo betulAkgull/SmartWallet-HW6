@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="116dp"
+        android:padding="10dp"
+        android:text="Summary"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/iv_profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_profile_image" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_profile_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_user_image" />
+
+    <ImageView
+        android:id="@+id/iv_logout"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:layout_margin="20dp"
+        android:contentDescription="logout"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_profile_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_profile_image"
+        app:srcCompat="@drawable/ic_logout" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:text="User"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_profile_image"
+        app:layout_constraintStart_toEndOf="@+id/iv_profile_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_profile_image" />
+
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_logout"
+        app:layout_constraintStart_toStartOf="@+id/iv_logout"
+        app:layout_constraintTop_toBottomOf="@id/iv_logout" />
+
+    <com.tistory.zladnrms.roundablelayout.RoundableLayout
+        android:id="@+id/rv_layout"
+        android:layout_width="0dp"
+        android:layout_height="445dp"
+        android:backgroundTint="@color/dark_grey"
+        android:elevation="10dp"
+        android:padding="10dp"
+        app:cornerLeftSide="20dp"
+        app:cornerRightSide="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/iv_logout"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.050000012">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_summary"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/rv_item" />
+
+    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
+
+    <com.tistory.zladnrms.roundablelayout.RoundableLayout
+        android:id="@+id/rl_btn_add"
+        android:layout_width="0dp"
+        android:layout_height="82dp"
+        android:backgroundTint="@color/dark_grey"
+        android:elevation="10dp"
+        app:cornerLeftSide="20dp"
+        app:cornerRightSide="20dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/roundableLayout"
+        app:layout_constraintStart_toStartOf="@+id/rv_layout"
+        app:layout_constraintTop_toBottomOf="@+id/rv_layout">
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center"
+            android:text="Add"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
+
+    <com.tistory.zladnrms.roundablelayout.RoundableLayout
+        android:id="@+id/roundableLayout"
+        android:layout_width="0dp"
+        android:layout_height="82dp"
+        android:clickable="true"
+        android:elevation="10dp"
+        app:cornerLeftSide="20dp"
+        app:cornerRightSide="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rl_btn_add"
+        app:layout_constraintEnd_toEndOf="@id/rv_layout"
+        app:layout_constraintTop_toTopOf="@+id/rl_btn_add">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/green"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Total: +17.619,7"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="" />
+    </com.tistory.zladnrms.roundablelayout.RoundableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

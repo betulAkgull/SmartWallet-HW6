@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SmartWallet-HW6</string>
+    <string name="tv_register"><u>Don\'t you have an account ? Register Now.</u></string>
+    <string name="signup_already_have_account"><u>I already have an account</u></string>
+</resources>

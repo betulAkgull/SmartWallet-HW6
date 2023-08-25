@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.smartwallet_hw6.ui.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/splashToSignin"
+            app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/splashtoSignup"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.example.smartwallet_hw6.ui.SigninFragment"
+        android:label="SigninFragment"
+        tools:layout="@layout/fragment_signin">
+        <action
+            android:id="@+id/signinToSignup"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/signinToSummary"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.example.smartwallet_hw6.ui.SignupFragment"
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/signupToSignin"
+            app:destination="@id/signinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.smartwallet_hw6.ui.summary.SummaryFragment"
+        android:label="SummaryFragment"
+        tools:layout="@layout/fragment_summary">
+        <action
+            android:id="@+id/summaryToAddEdit"
+            app:destination="@id/addEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomeFragment"
+        android:name="com.example.smartwallet_hw6.ui.IncomeFragment"
+        android:label="IncomeFragment"
+        tools:layout="@layout/fragment_income"/>
+    <fragment
+        android:id="@+id/expenseFragment"
+        android:name="com.example.smartwallet_hw6.ui.ExpenseFragment"
+        android:label="ExpenseFragment"
+        tools:layout="@layout/fragment_expense"/>
+    <fragment
+        android:id="@+id/addEditFragment"
+        android:name="com.example.smartwallet_hw6.ui.AddEditFragment"
+        android:label="AddEditFragment"
+        tools:layout="@layout/fragment_add_edit"/>
+</navigation>

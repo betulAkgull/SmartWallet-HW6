@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "941162808394",
+    "project_id": "smartwallet-hw6",
+    "storage_bucket": "smartwallet-hw6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941162808394:android:f5c199927b2779460052b3",
+        "android_client_info": {
+          "package_name": "com.example.smartwallet_hw6"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941162808394-qmuj552pjhjuprd1216qlta1eh972i97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDboxsdOOKZvkStnGG6AnOoLquJ1xliaHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941162808394-qmuj552pjhjuprd1216qlta1eh972i97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
