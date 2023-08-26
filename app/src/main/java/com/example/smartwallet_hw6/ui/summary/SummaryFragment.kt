@@ -55,7 +55,7 @@ class SummaryFragment : Fragment(R.layout.fragment_summary) {
             }
 
             btnAdd.setOnClickListener {
-                findNavController().navigate(SummaryFragmentDirections.summaryToAddEdit())
+                findNavController().navigate(R.id.addEditFragment)
             }
         }
     }
@@ -112,8 +112,8 @@ class SummaryFragment : Fragment(R.layout.fragment_summary) {
     }
 
     private fun onItemClick(item: IncomeExpense) {
-//        val action = SummaryFragmentDirections.summaryToAddEdit(item)
-//        findNavController().navigate(action)
+        val action = SummaryFragmentDirections.summaryToAddEdit().setItem(item)
+        findNavController().navigate(action)
     }
 
     private fun getUserInfo() {

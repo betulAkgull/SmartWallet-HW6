@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentExpenseBinding
@@ -87,7 +88,7 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
     }
 
     private fun onItemClick(item: IncomeExpense) {
-//        val action = SummaryFragmentDirections.summaryToAddEdit(item)
-//        findNavController().navigate(action)
+        val action = ExpenseFragmentDirections.expenseToAddEdit().setItem(item)
+        findNavController().navigate(action)
     }
 }

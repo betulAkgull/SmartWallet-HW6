@@ -65,7 +65,7 @@
     <com.tistory.zladnrms.roundablelayout.RoundableLayout
         android:id="@+id/rv_layout"
         android:layout_width="0dp"
-        android:layout_height="445dp"
+        android:layout_height="480dp"
         android:backgroundTint="@color/dark_grey"
         android:elevation="10dp"
         android:padding="10dp"

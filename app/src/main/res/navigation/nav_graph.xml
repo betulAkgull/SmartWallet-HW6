@@ -51,12 +51,20 @@
         android:id="@+id/incomeFragment"
         android:name="com.example.smartwallet_hw6.ui.IncomeFragment"
         android:label="IncomeFragment"
-        tools:layout="@layout/fragment_income"/>
+        tools:layout="@layout/fragment_income">
+        <action
+            android:id="@+id/incomeToAddEdit"
+            app:destination="@id/addEditFragment" />
+    </fragment>
     <fragment
         android:id="@+id/expenseFragment"
         android:name="com.example.smartwallet_hw6.ui.ExpenseFragment"
         android:label="ExpenseFragment"
-        tools:layout="@layout/fragment_expense"/>
+        tools:layout="@layout/fragment_expense">
+        <action
+            android:id="@+id/expenseToAddEdit"
+            app:destination="@id/addEditFragment" />
+    </fragment>
     <dialog
         android:id="@+id/addEditFragment"
         android:name="com.example.smartwallet_hw6.ui.AddEditFragment"
