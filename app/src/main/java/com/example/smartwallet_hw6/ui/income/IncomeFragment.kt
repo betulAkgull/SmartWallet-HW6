@@ -1,4 +1,4 @@
-package com.example.smartwallet_hw6.ui
+package com.example.smartwallet_hw6.ui.income
 
 import android.os.Bundle
 import android.view.View
@@ -7,8 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
-import com.example.smartwallet_hw6.databinding.FragmentExpenseBinding
+import com.example.smartwallet_hw6.databinding.FragmentIncomeBinding
 import com.example.smartwallet_hw6.model.data.IncomeExpense
+import com.example.smartwallet_hw6.ui.IncomeFragmentDirections
 import com.example.smartwallet_hw6.ui.adapter.IncomeExpenseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -17,9 +18,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
-class ExpenseFragment : Fragment(R.layout.fragment_expense) {
+class IncomeFragment : Fragment(R.layout.fragment_income) {
 
-    private val binding by viewBinding(FragmentExpenseBinding::bind)
+    private val binding by viewBinding(FragmentIncomeBinding::bind)
 
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
@@ -37,23 +38,23 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
         auth = Firebase.auth
         db = Firebase.firestore
 
-        binding.rvExpense.adapter = incomeExpenseAdapter
+        binding.rvIncome.adapter = incomeExpenseAdapter
 
-        getExpenses()
+        getIncomes()
 
         with(binding) {
 
         }
     }
 
-    private fun getExpenses() {
+    private fun getIncomes() {
         val docRef = db.collection("users").document(auth.currentUser!!.email.toString())
-            .collection("income_expense").whereEqualTo("type",true)
+            .collection("income_expense").whereEqualTo("type", false)
 
         docRef.addSnapshotListener { snapshot, error ->
             val summaryList = arrayListOf<IncomeExpense>()
 
-            var totalExpenses = 0.0
+            var totalIncomes = 0.0
 
             snapshot?.forEach { document ->
                 summaryList.add(
@@ -65,10 +66,10 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
                         document.get("type") as Boolean
                     )
                 )
-                totalExpenses +=  (document.get("cost") as Number).toDouble()
+                totalIncomes += (document.get("cost") as Number).toDouble()
             }
 
-            binding.tvTotal.setText("Total: -${totalExpenses}")
+            binding.tvTotal.setText("Total: +${totalIncomes}")
 
             incomeExpenseAdapter.submitList(summaryList)
         }
@@ -88,7 +89,7 @@ class ExpenseFragment : Fragment(R.layout.fragment_expense) {
     }
 
     private fun onItemClick(item: IncomeExpense) {
-        val action = ExpenseFragmentDirections.expenseToAddEdit().setItem(item)
+        val action = IncomeFragmentDirections.incomeToAddEdit().setItem(item)
         findNavController().navigate(action)
     }
 }

@@ -50,31 +50,28 @@
         android:id="@+id/btn_sign_in"
         android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/light_grey"
         android:text="Sign In"
         android:textColor="@color/black"
         android:textSize="26sp"
-        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_signup"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="0dp"
         android:layout_height="59dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/light_grey"
         android:text="Sign Up"
         android:textColor="@color/black"
         android:textSize="26sp"
-        android:layout_margin="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_sign_in"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/btn_sign_in" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

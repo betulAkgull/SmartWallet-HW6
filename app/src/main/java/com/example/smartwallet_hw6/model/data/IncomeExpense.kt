@@ -10,4 +10,4 @@ data class IncomeExpense(
     val cost: Double? = null,
     val date: String? = null,
     val type: Boolean? = false
-): Parcelable
+) : Parcelable

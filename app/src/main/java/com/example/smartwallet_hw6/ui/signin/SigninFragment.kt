@@ -1,4 +1,4 @@
-package com.example.smartwallet_hw6.ui
+package com.example.smartwallet_hw6.ui.signin
 
 import android.os.Bundle
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentSigninBinding
+import com.example.smartwallet_hw6.ui.SigninFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -33,7 +34,11 @@ class SigninFragment : Fragment(R.layout.fragment_signin) {
                 if (email.isNotEmpty() && password.isNotEmpty()) {
                     signIn(email, password)
                 } else {
-                    Snackbar.make(requireView(), "Email/Password do not match! Please Try Again", 1000).show()
+                    Snackbar.make(
+                        requireView(),
+                        "Email/Password do not match! Please Try Again",
+                        1000
+                    ).show()
                     etEmail.requestFocus()
                 }
             }

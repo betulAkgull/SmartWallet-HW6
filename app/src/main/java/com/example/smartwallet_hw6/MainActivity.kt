@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 
             navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
                 if (destination.id == R.id.signinFragment || destination.id == R.id.splashFragment || destination.id == R.id.signupFragment) {
-                    bnvMain.invisible()
+                    rlBnv.invisible()
                 } else {
-                    bnvMain.visible()
+                    rlBnv.visible()
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.smartwallet_hw6.ui
+package com.example.smartwallet_hw6.ui.signup
 
 import android.content.ContentValues
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentSignupBinding
+import com.example.smartwallet_hw6.ui.SignupFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -77,7 +78,11 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
                 binding.ivUserPhoto.setImageURI(selectedImage)
                 Toast.makeText(requireContext(), "Photo Uploaded", Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
-                Toast.makeText(requireContext(), "Error Occured During Photo Upload", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Error Occured During Photo Upload",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
     }

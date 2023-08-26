@@ -1,4 +1,4 @@
-package com.example.smartwallet_hw6.ui
+package com.example.smartwallet_hw6.ui.splash
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentSplashBinding
+import com.example.smartwallet_hw6.ui.SplashFragmentDirections
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

@@ -86,14 +86,14 @@
             android:id="@+id/tv_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Category"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="4dp"
-            app:layout_constraintTop_toBottomOf="@id/til_save_type"
+            android:layout_marginTop="20dp"
+            android:text="Category"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/et_date"
             app:layout_constraintStart_toStartOf="@id/et_date"
-            app:layout_constraintEnd_toEndOf="@id/et_date"/>
+            app:layout_constraintTop_toBottomOf="@id/til_save_type" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_category"
@@ -115,24 +115,24 @@
                     android:id="@+id/rb_category1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category1"
                     android:layout_margin="3dp"
+                    android:text="Category1"
                     android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/rb_category2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category2"
                     android:layout_margin="3dp"
+                    android:text="Category2"
                     android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/rb_category3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category3"
                     android:layout_margin="3dp"
+                    android:text="Category3"
                     android:textColor="@color/white" />
 
             </RadioGroup>

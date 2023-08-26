@@ -1,10 +1,9 @@
-package com.example.smartwallet_hw6.ui
+package com.example.smartwallet_hw6.ui.addedit
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.invisible
@@ -12,6 +11,7 @@ import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.common.visible
 import com.example.smartwallet_hw6.databinding.FragmentAddEditBinding
 import com.example.smartwallet_hw6.model.data.IncomeExpense
+import com.example.smartwallet_hw6.ui.AddEditFragmentArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -44,16 +44,16 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
             args.item?.let {
                 setupEditLayout(it)
                 documentId = it.documentId.toString()
-                if(it.type == true){
+                if (it.type == true) {
                     actSaveType.setText("Expense")
-                }else{
+                } else {
                     actSaveType.setText("Income")
                 }
             }
 
             var type = true
 
-            val saveTypeList = listOf("Income","Expense")
+            val saveTypeList = listOf("Income", "Expense")
 
             val saveTypeAdapter = ArrayAdapter(
                 requireContext(),
@@ -68,16 +68,15 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
                 if (selectedSaveType == "Income") {
                     type = false
                     setRadioGrupIncome()
-                }else{
+                } else {
                     setRadioGrupExpense()
                 }
             }
 
 
-
             var category = ""
             radioGroup.setOnCheckedChangeListener { radioGroup, i ->
-                when(i){
+                when (i) {
                     rbCategory1.id -> category = rbCategory1.text.toString()
                     rbCategory2.id -> category = rbCategory2.text.toString()
                     rbCategory3.id -> category = rbCategory3.text.toString()
@@ -102,8 +101,8 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
     }
 
 
-    fun setupEditLayout(it:IncomeExpense){
-        with(binding){
+    fun setupEditLayout(it: IncomeExpense) {
+        with(binding) {
             etTitle.setText(it.title)
             etDate.setText(it.date)
             etCost.setText(it.cost.toString())
@@ -114,24 +113,24 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
         }
     }
 
-    fun setupAddLayout(){
+    fun setupAddLayout() {
 
-        with(binding){
+        with(binding) {
             btnSave.invisible()
         }
 
     }
 
-    fun setRadioGrupExpense(){
-        with(binding){
+    fun setRadioGrupExpense() {
+        with(binding) {
             rbCategory1.setText("Bills")
             rbCategory2.setText("Rent")
             rbCategory3.setText("Shopping")
         }
     }
 
-    fun setRadioGrupIncome(){
-        with(binding){
+    fun setRadioGrupIncome() {
+        with(binding) {
             rbCategory1.setText("Salary")
             rbCategory2.setText("Rent")
             rbCategory3.setText("Crypto")
@@ -162,7 +161,7 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
             .collection("income_expense").document(documentId).update(incomeExpense)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Document Updated", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.summaryFragment)
+                this.dismiss()
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), "Update Failed", Toast.LENGTH_SHORT).show()
             }
@@ -190,7 +189,7 @@ class AddEditFragment : BottomSheetDialogFragment(R.layout.fragment_add_edit) {
             .collection("income_expense").add(incomeExpense)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Document Added", Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.summaryFragment)
+                this.dismiss()
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), "Adding Failed", Toast.LENGTH_SHORT).show()
             }
