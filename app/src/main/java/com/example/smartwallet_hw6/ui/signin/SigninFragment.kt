@@ -8,7 +8,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentSigninBinding
-import com.example.smartwallet_hw6.ui.SigninFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

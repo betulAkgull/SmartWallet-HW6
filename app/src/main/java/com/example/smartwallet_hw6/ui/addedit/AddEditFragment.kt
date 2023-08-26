@@ -11,7 +11,6 @@ import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.common.visible
 import com.example.smartwallet_hw6.databinding.FragmentAddEditBinding
 import com.example.smartwallet_hw6.model.data.IncomeExpense
-import com.example.smartwallet_hw6.ui.AddEditFragmentArgs
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

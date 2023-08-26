@@ -9,7 +9,6 @@ import com.example.smartwallet_hw6.R
 import com.example.smartwallet_hw6.common.viewBinding
 import com.example.smartwallet_hw6.databinding.FragmentExpenseBinding
 import com.example.smartwallet_hw6.model.data.IncomeExpense
-import com.example.smartwallet_hw6.ui.ExpenseFragmentDirections
 import com.example.smartwallet_hw6.ui.adapter.IncomeExpenseAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
